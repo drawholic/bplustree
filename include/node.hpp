@@ -16,7 +16,8 @@ class Node
 
     unsigned capacity;
 
-    Node* keys_comparison(unsigned);
+    Node* get_child(unsigned);
+    unsigned keys_comparison(unsigned);
 
 public:
     Node();
@@ -27,6 +28,8 @@ public:
     bool is_leaf();
     bool is_full();
     void split();
+
+    void push_node(unsigned);
 
     void copy_children(node_it, node_it);
     void copy_keys(key_it, key_it);
