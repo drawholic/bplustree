@@ -5,9 +5,9 @@
 
 class Tree
 {
-
+    unsigned order;
 public:
-    Tree();
+    Tree(unsigned);
 };
 
 #endif
