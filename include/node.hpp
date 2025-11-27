@@ -15,8 +15,8 @@ public:
     Node();
     Node(unsigned);
 
-
-
+    void insert(unsigned);
+    Node* get_leaf(unsigned);
     bool is_leaf();
 
 };
