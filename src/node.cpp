@@ -18,12 +18,17 @@ bool Node::is_leaf()
     return children.empty();
 };
 
-Node* Node::keys_comparison(unsigned key)
+Node* Node::get_child(unsigned key)
+{
+    return children[keys_comparison(key)];
+};
+
+unsigned Node::keys_comparison(unsigned key)
 {
     unsigned i;
     for( i = 0; i < keys.size(); i++)
         if(key < keys[i]) break;
-    return children[i];
+    return i;
 };
 
 bool Node::is_full()
@@ -57,3 +62,34 @@ void Node::split()
 };
 
 
+Node* Node::get_leaf(unsigned key)
+{
+    if(is_leaf()) return this;
+
+    return get_child(key)->get_leaf(key);
+};
+
+void Node::copy_children(node_it a , node_it b)
+{
+    children.assign(a, b);
+};
+
+void Node::copy_keys(key_it a, key_it b)
+{
+    keys.assign(a, b);
+};
+
+void Node::insert(unsigned key)
+{
+    Node* leaf = get_leaf(key);
+    
+    leaf->push_node(key);   
+    
+    if(leaf->is_full()) leaf->split();
+};
+
+
+void Node::push_node(unsigned key)
+{
+    keys.insert(keys.begin()+keys_comparison(key), key);
+};
