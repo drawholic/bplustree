@@ -16,8 +16,9 @@ void Tree::insert(unsigned key)
         root->insert(key);
     }else{
         Node* leaf = root->get_leaf(key);
+        leaf->insert(key);
+        if(leaf->is_full()) leaf->split();
         
-    
     };
 
 };
