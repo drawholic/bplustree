@@ -6,13 +6,13 @@
 class Tree
 {
     unsigned order;
+    Node* root;
 public:
     Tree(unsigned);
 
     void insert(unsigned);
     void remove(unsigned);
     void search(unsigned);
-
 
 };
 
