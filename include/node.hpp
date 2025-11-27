@@ -18,7 +18,8 @@ public:
     void insert(unsigned);
     Node* get_leaf(unsigned);
     bool is_leaf();
-
+    bool is_full();
+    void split();
 };
 
 
