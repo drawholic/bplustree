@@ -11,6 +11,8 @@ class Node
 
     unsigned capacity;
 
+    Node* keys_comparison(unsigned, std::vector<unsigned>&);
+
 public:
     Node();
     Node(unsigned);
