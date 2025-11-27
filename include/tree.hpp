@@ -8,6 +8,12 @@ class Tree
     unsigned order;
 public:
     Tree(unsigned);
+
+    void insert(unsigned);
+    void remove(unsigned);
+    void search(unsigned);
+
+
 };
 
 #endif
