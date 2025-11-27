@@ -43,13 +43,15 @@ void Node::split()
     left->copy_children(children.begin(), children.begin()+pivot);
     left->copy_keys(keys.begin(), keys.begin()+pivot);
 
-    right->copy_children(children.begin()+ pivot + 1, children.end());
+    right->copy_children(children.begin()+ pivot, children.end());
     right->copy_keys(keys.begin()+pivot+1, keys.end());
 
     children.clear();
     keys.clear();    
 
-    children.push_back(pivot_node);
+    children.push_back(left);
+    children.push_back(right);
+
     keys.push_back(pivot_key);
 
 };
